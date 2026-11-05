@@ -1,0 +1,266 @@
+Building configuration...
+
+Current configuration : 4612 bytes
+!
+version 16.3.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname CORE-SW1
+!
+!
+no profinet
+enable secret <redacted>
+!
+!
+!
+!
+!
+!
+no ip cef
+ip routing
+!
+no ipv6 cef
+!
+!
+!
+username <redacted> secret <redacted>
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet1/0/1
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,99,999
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/2
+ switchport trunk native vlan 999
+ switchport trunk allowed vlan 10,20,30,40,50,99,999
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface GigabitEthernet1/0/3
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/4
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/5
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/6
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/7
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/8
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/9
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/10
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/11
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/12
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/13
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/14
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/15
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/16
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/17
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/18
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/19
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/20
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/21
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/22
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/23
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/0/24
+ no switchport
+ ip address 10.10.255.2 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet1/1/1
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/1/2
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/1/3
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet1/1/4
+ switchport access vlan 666
+ switchport mode access
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ mac-address 0004.9a2d.d401
+ ip address 10.10.10.1 255.255.255.0
+ ip helper-address 10.10.50.10
+!
+interface Vlan20
+ mac-address 0004.9a2d.d402
+ ip address 10.10.20.1 255.255.255.0
+ ip helper-address 10.10.50.10
+!
+interface Vlan30
+ mac-address 0004.9a2d.d403
+ ip address 10.10.30.1 255.255.255.0
+!
+interface Vlan40
+ mac-address 0004.9a2d.d404
+ ip address 10.10.40.1 255.255.255.0
+ ip helper-address 10.10.50.10
+ ip access-group SCANNERS-IN in
+!
+interface Vlan50
+ mac-address 0004.9a2d.d405
+ ip address 10.10.50.1 255.255.255.0
+!
+interface Vlan99
+ mac-address 0004.9a2d.d406
+ ip address 10.10.99.2 255.255.255.0
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 10.10.255.1 
+!
+ip flow-export version 9
+!
+!
+ip access-list extended SCANNERS-IN
+ remark ALLOW DHCP
+ permit udp any any eq bootps
+ remark ALLOW SCANNERS TO SERVERS
+ permit ip 10.10.40.0 0.0.0.255 10.10.50.0 0.0.0.255
+ deny ip 10.10.40.0 0.0.0.255 10.0.0.0 0.255.255.255
+ permit ip any any
+!
+banner motd ^C
+************************************************
+Authorized Personal Only
+************************************************
+^C
+!
+!
+!
+!
+line con 0
+ exec-timeout 15 0
+ logging synchronous
+ login local
+!
+line aux 0
+!
+line vty 0 4
+ logging synchronous
+ login local
+ transport input ssh
+line vty 5 15
+ logging synchronous
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
