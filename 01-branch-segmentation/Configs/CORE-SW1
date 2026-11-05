@@ -219,7 +219,7 @@ interface Vlan50
 !
 interface Vlan99
  mac-address 0004.9a2d.d406
- ip address 10.10.99.2 255.255.255.0
+ ip address 10.10.99.1 255.255.255.0
 !
 ip classless
 ip route 0.0.0.0 0.0.0.0 10.10.255.1 
