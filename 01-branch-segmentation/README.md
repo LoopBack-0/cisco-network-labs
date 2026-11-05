@@ -100,7 +100,7 @@ A manufacturing branch runs everything on one flat network: office PCs, VoIP pho
 12. Removed all sub-interfaces from R1
 13. Configured a return route on R1 back to the LAN
 
-Full configs: [configs/](configs/)
+Full configs: [configs/](Configs/)
 
 ## Verification
 
