@@ -1,4 +1,4 @@
-# Network Labs – Damien Sanchez
+# Cisco Network Labs – Damien Sanchez
 
 Hands-on network engineering labs built in Cisco Packet Tracer. Each project
 starts from a business problem and includes the design reasoning, full
