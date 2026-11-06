@@ -45,7 +45,7 @@ A manufacturing branch runs everything on one flat network: office PCs, VoIP pho
 
 | Device             | Management IP |
 | ------------------ | ------------- |
-| CORE-SW1 (Phase B) | 10.10.99.2    |
+| CORE-SW1 (Phase B) | 10.10.99.1    |
 | ACC-SW1            | 10.10.99.11   |
 | ACC-SW2            | 10.10.99.12   |
 
