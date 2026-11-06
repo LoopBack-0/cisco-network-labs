@@ -10,3 +10,4 @@ configs, verification and a troubleshooting log.
 |---|---|---|
 | 1 | [Branch Site Segmentation](01-branch-segmentation/) | VLANs, trunking, port security, L3 switching, DHCP relay, ACLs |
 
+**LinkIn:** [Damien Sanchez](https://www.linkedin.com/in/damien-sanchez)
